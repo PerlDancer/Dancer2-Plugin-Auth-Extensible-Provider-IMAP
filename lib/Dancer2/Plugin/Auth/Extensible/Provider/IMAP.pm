@@ -1,6 +1,5 @@
 package Dancer2::Plugin::Auth::Extensible::Provider::IMAP;
 
-use Carp qw/croak/;
 use Dancer2::Core::Types qw/HashRef Str/;
 use Net::IMAP::Simple;
 
