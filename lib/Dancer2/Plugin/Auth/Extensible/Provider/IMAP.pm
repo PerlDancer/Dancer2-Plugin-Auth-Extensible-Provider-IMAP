@@ -21,9 +21,6 @@ This class is a generic IMAP authentication provider.
 See L<Dancer2::Plugin::Auth::Extensible> for details on how to use the
 authentication framework.
 
-In order to use SSL connections to the server you must install
-L<IO::Socket::SSL>.
-
 =head1 ATTRIBUTES
 
 =head2 host
@@ -42,12 +39,20 @@ has host => (
 
 A hash reference of options to be passed to L<Net::IMAP::Simple/new>.
 
+Defaults to:
+
+    {
+        port        => 993,
+        use_ssl     => 1,
+        ssl_version => 'TLSv1',
+    }
+
 =cut
 
 has options => (
     is      => 'ro',
     isa     => HashRef,
-    default => sub { +{} },
+    default => sub { +{ port => 993, use_ssl => 1, ssl_version => 'TLSv1' } },
 );
 
 =head1 METHODS

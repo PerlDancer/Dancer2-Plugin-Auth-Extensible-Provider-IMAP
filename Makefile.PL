@@ -20,6 +20,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Dancer2::Core::Types'              => 0,
         'Dancer2::Plugin::Auth::Extensible' => '0.613',
+        'IO::Socket::SSL'                   => 0,
         'Moo'                               => '2.000000',
         'namespace::clean'                  => 0,
         'Net::IMAP::Simple'                 => '1.2207',
