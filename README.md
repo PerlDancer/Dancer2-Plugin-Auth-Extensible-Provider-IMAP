@@ -9,9 +9,6 @@ This class is a generic IMAP authentication provider.
 See [Dancer2::Plugin::Auth::Extensible](https://metacpan.org/pod/Dancer2::Plugin::Auth::Extensible) for details on how to use the
 authentication framework.
 
-In order to use SSL connections to the server you must install
-[IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL).
-
 # ATTRIBUTES
 
 ## host
@@ -21,6 +18,14 @@ IMAP server name or IP address. Required.
 ## options
 
 A hash reference of options to be passed to ["new" in Net::IMAP::Simple](https://metacpan.org/pod/Net::IMAP::Simple#new).
+
+Defaults to:
+
+    {
+        port        => 993,
+        use_ssl     => 1,
+        ssl_version => 'TLSv1',
+    }
 
 # METHODS
 
