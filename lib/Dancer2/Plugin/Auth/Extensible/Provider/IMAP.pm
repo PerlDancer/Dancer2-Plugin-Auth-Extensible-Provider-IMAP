@@ -64,7 +64,7 @@ has options => (
 sub authenticate_user {
     my ( $self, $username, $password ) = @_;
 
-    my $imap = Net::IMAP::Simple->new( $self->server, %{ $self->options } );
+    my $imap = Net::IMAP::Simple->new( $self->host, %{ $self->options } );
     if (!$imap) {
         $self->plugin->app->log(
             error => "IMAP connect failed: $Net::IMAP::Simple::errstr");
@@ -83,22 +83,22 @@ sub authenticate_user {
 
 =head2 get_user_details $username
 
-Not appropriate for this provider so returns nothing.
+Not appropriate for this provider so returns an empty hash reference.
 
 =cut
 
 sub get_user_details {
-    return;
+    return +{};
 }
 
 =head2 get_user_roles $username
 
-Not appropriate for this provider so returns nothing.
+Not appropriate for this provider so returns an empty array reference.
 
 =cut
 
 sub get_user_roles {
-    return;
+    return [];
 }
 
 =head1 SEE ALSO
