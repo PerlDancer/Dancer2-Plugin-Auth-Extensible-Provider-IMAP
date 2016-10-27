@@ -1,0 +1,4 @@
+#!/bin/sh
+pod2markdown lib/Dancer2/Plugin/Auth/Extensible/Provider/IMAP.pm >README.md
+pod2text lib/Dancer2/Plugin/Auth/Extensible/Provider/IMAP.pm >README
+
