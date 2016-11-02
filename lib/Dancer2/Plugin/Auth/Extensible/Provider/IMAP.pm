@@ -1,5 +1,6 @@
 package Dancer2::Plugin::Auth::Extensible::Provider::IMAP;
 
+use Carp qw/croak/;
 use Dancer2::Core::Types qw/HashRef Str/;
 use Net::IMAP::Simple;
 
@@ -62,42 +63,22 @@ has options => (
 
 sub authenticate_user {
     my ( $self, $username, $password ) = @_;
+    croak "username and password must be defined"
+      unless defined $username && defined $password;
 
     my $imap = Net::IMAP::Simple->new( $self->host, %{ $self->options } );
-    if (!$imap) {
-        $self->plugin->app->log(
-            error => "IMAP connect failed: $Net::IMAP::Simple::errstr");
-        return;
-    }
+    croak "IMAP connect failed: $Net::IMAP::Simple::errstr"
+      unless $imap;
+
     my $ret = $imap->login($username, $password);
     if ( $ret ) {
         $imap->logout;
     }
     else {
         $self->plugin->app->log(
-            debug => "IMAP login failed: $Net::IMAP::Simple::errstr");
+            debug => "IMAP login failed: $Net::IMAP::Simple::errstr" );
     }
     return $ret;
-}
-
-=head2 get_user_details $username
-
-Not appropriate for this provider so returns an empty hash reference.
-
-=cut
-
-sub get_user_details {
-    return +{};
-}
-
-=head2 get_user_roles $username
-
-Not appropriate for this provider so returns an empty array reference.
-
-=cut
-
-sub get_user_roles {
-    return [];
 }
 
 =head1 SEE ALSO

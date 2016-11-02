@@ -18,6 +18,7 @@ WriteMakefile(
         'Test::More' => 0,
     },
     PREREQ_PM => {
+        'Carp'                              => 0,
         'Dancer2::Core::Types'              => 0,
         'Dancer2::Plugin::Auth::Extensible' => '0.614',
         'IO::Socket::SSL'                   => 0,
