@@ -25,12 +25,6 @@ ATTRIBUTES
 
 METHODS
   authenticate_user $username, $password
-  get_user_details $username
-    Not appropriate for this provider so returns an empty hash reference.
-
-  get_user_roles $username
-    Not appropriate for this provider so returns an empty array reference.
-
 SEE ALSO
     Dancer2, Dancer2::Plugin::Auth::Extensible, Net::IMAP::Simple.
 

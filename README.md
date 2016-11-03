@@ -31,14 +31,6 @@ Defaults to:
 
 ## authenticate\_user $username, $password
 
-## get\_user\_details $username
-
-Not appropriate for this provider so returns an empty hash reference.
-
-## get\_user\_roles $username
-
-Not appropriate for this provider so returns an empty array reference.
-
 # SEE ALSO
 
 [Dancer2](https://metacpan.org/pod/Dancer2), [Dancer2::Plugin::Auth::Extensible](https://metacpan.org/pod/Dancer2::Plugin::Auth::Extensible), [Net::IMAP::Simple](https://metacpan.org/pod/Net::IMAP::Simple).
