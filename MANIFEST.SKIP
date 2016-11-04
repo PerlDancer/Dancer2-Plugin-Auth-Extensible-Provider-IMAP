@@ -3,3 +3,4 @@ README.md
 \.swp$
 bin/*
 .travis.yml
+Makefile.old
